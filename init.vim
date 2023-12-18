@@ -1,7 +1,4 @@
 lua require('init')
+lua require('set')
 
 colorscheme onedark
-set tabstop=3
-set shiftwidth=3
-set expandtab
-syntax on
