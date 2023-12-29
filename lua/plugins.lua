@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
          {'L3MON4D3/LuaSnip'},
       }
    }
+   -- lsp inline status
    use ({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
    use({
    'ray-x/navigator.lua',
@@ -37,4 +38,12 @@ return require('packer').startup(function(use)
          { 'neovim/nvim-lspconfig' },
       },
    })
+   -- telescope
+   use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.5',
+      requires = { 
+         {'nvim-lua/plenary.nvim'},
+         {'nvim-tree/nvim-web-devicons'}
+      }
+   }
 end)

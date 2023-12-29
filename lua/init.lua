@@ -1,3 +1,7 @@
+-- configs
+require("config")
+require("keybinds")
+
 -- plugin manager
 require("plugins")
 
