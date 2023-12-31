@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
          {'L3MON4D3/LuaSnip'},
       }
    }
-   -- lsp inline status
+   -- lsp integrations
    use ({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
    use({
    'ray-x/navigator.lua',
@@ -38,12 +38,13 @@ return require('packer').startup(function(use)
          { 'neovim/nvim-lspconfig' },
       },
    })
-   -- telescope
+   -- navegation
    use {
       'nvim-telescope/telescope.nvim', tag = '0.1.5',
-      requires = { 
+      requires = {
          {'nvim-lua/plenary.nvim'},
          {'nvim-tree/nvim-web-devicons'}
       }
    }
+   use ("theprimeagen/harpoon")
 end)
