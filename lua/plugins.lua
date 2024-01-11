@@ -6,29 +6,39 @@ return require('packer').startup(function(use)
 	-- utils
 	use 'm4xshen/autoclose.nvim'
    -- cmp
+   use 'L3MON4D3/LuaSnip'
    use 'hrsh7th/nvim-cmp'
    use 'hrsh7th/cmp-nvim-lsp'
    use 'hrsh7th/cmp-buffer'
-   use 'saadparwaiz1/cmp_luasnip'
    use 'hrsh7th/cmp-path'
+   use 'ray-x/cmp-treesitter'
+   use 'f3fora/cmp-spell'
+
+   use {
+      'hrsh7th/cmp-vsnip',
+      after = 'nvim-cmp',
+      requires = {
+         'hrsh7th/vim-vsnip',
+         {
+            'rafamadriz/friendly-snippets',
+            after = 'cmp-vsnip'
+         }
+      }
+   }
+
    use 'L3MON4D3/LuaSnip'
-   use 'rafamadriz/friendly-snippets'
-   -- lsp0   
+
    use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v3.x',
       requires = {
          {'williamboman/mason.nvim'},
          {'williamboman/mason-lspconfig.nvim'},
-
          -- LSP Support
          {'neovim/nvim-lspconfig'},
-         -- Autocompletion
-         {'hrsh7th/nvim-cmp'},
-         {'hrsh7th/cmp-nvim-lsp'},
-         {'L3MON4D3/LuaSnip'},
       }
    }
+
    -- lsp integrations
    use ({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
    use({
