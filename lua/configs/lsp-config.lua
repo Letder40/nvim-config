@@ -24,11 +24,37 @@ cmp.setup({
 })
 
 -- LSP
+-- Custom
+lsp.configure('intelephense', {
+    settings = {
+        intelephense = {
+            telemetry = {
+                enabled = false
+            }
+        }
+    }
+})
+
 local lspconfig = require("lspconfig")
+lspconfig.html.setup{
+   filetypes = {"html", "php"}
+}
+lspconfig.denols.setup{
+   filetypes = {"html", "php", "javascript"}
+}
+lspconfig.htmx.setup{
+   filetypes = {"html", "php", "templ"}
+}
+lspconfig.cssls.setup{
+   filetypes = {"html", "php", "css", "scss"}
+}
+
+-- Default
 lspconfig.lua_ls.setup({})
 lspconfig.clangd.setup({})
 lspconfig.rust_analyzer.setup({})
 lspconfig.pyright.setup({})
 lspconfig.gopls.setup({})
-lspconfig.html.setup({})
-lspconfig.htmx.setup({})
+lspconfig.lemminx.setup({})
+lspconfig.asm_lsp.setup({})
+lspconfig.tsserver.setup({})
