@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>a", function() print "hi" end)
 
 -- best remaps ever
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
@@ -24,3 +23,8 @@ vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 
 vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
 vim.keymap.set("n", "<C-l>", function() ui.nav_file(2) end)
+
+-- zen
+local zen = require('zen-mode')
+vim.keymap.set("n", "<leader>zz", function() zen.toggle() end)
+

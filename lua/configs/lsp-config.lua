@@ -12,49 +12,66 @@ lsp.defaults.cmp_mappings({
    ['<C-Space>'] = cmp.mapping.complete(),
 })
 
-local cmp_format = require('lsp-zero').cmp_format()
+local lspkind = require('lspkind')
 cmp.setup({
    sources = {
       { name = "nvim_lsp" },
       { name = "vsnip" },
       { name = "buffer" },
    },
-  --- Show source name in completion menu
-  formatting = cmp_format,
+
+   formatting = {
+    format = lspkind.cmp_format({
+      maxwidth = {
+        menu = 50, -- leading text (labelDetails)
+        abbr = 50, -- actual suggestion item
+      },
+      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+
+      -- The function below will be called before any actual modifications from lspkind
+      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+      before = function (entry, vim_item)
+        -- ...
+        return vim_item
+      end
+    })
+  }
 })
 
--- LSP
--- Custom
-lsp.configure('intelephense', {
-    settings = {
-        intelephense = {
-            telemetry = {
-                enabled = false
-            }
-        }
-    }
+-- LaTex 
+lsp.configure("texlab")
+
+-- MD
+lsp.configure("lemminx") -- xml
+
+-- WEB
+lsp.configure("html")
+lsp.configure("htmx")
+lsp.configure("cssls")
+lsp.configure("phpactor")
+lsp.configure("vtsls")
+lsp.configure("eslint")
+lsp.configure("tailwindcss")
+
+-- Interpreted
+lsp.configure("pyright")
+lsp.configure("powershell_es")
+
+-- Compiled
+lsp.configure("asm_lsp")
+lsp.configure("clangd")
+lsp.configure("rust_analyzer")
+lsp.configure("gopls")
+
+-- No lsp-zero 
+--
+ local lspconfig = require("lspconfig")
+
+lspconfig.powershell_es.setup({
+   filetypes = {"ps1", "psm1", "psd1"},
+   bundle_path = "~/AppData/Local/nvim-data/mason/packages/powershell-editor-services.ps1",
+   init_options = {
+     enableProfileLoading = false,
+   },
 })
-
-local lspconfig = require("lspconfig")
-lspconfig.html.setup{
-   filetypes = {"html", "php"}
-}
-lspconfig.denols.setup{
-   filetypes = {"html", "php", "javascript"}
-}
-lspconfig.htmx.setup{
-   filetypes = {"html", "php", "templ"}
-}
-lspconfig.cssls.setup{
-   filetypes = {"html", "php", "css", "scss"}
-}
-
--- Default
-lspconfig.lua_ls.setup({})
-lspconfig.clangd.setup({})
-lspconfig.rust_analyzer.setup({})
-lspconfig.pyright.setup({})
-lspconfig.gopls.setup({})
-lspconfig.lemminx.setup({})
-lspconfig.asm_lsp.setup({})
-lspconfig.tsserver.setup({})

@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
 	use 'navarasu/onedark.nvim'
 	-- utils
 	use 'm4xshen/autoclose.nvim'
+    use 'folke/zen-mode.nvim'
    -- cmp
    use 'L3MON4D3/LuaSnip'
    use 'hrsh7th/nvim-cmp'
@@ -13,6 +14,7 @@ return require('packer').startup(function(use)
    use 'hrsh7th/cmp-path'
    use 'ray-x/cmp-treesitter'
    use 'f3fora/cmp-spell'
+   use 'onsails/lspkind.nvim'
 
    use {
       'hrsh7th/cmp-vsnip',
