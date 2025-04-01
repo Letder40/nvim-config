@@ -1,7 +1,23 @@
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "rust", "go", "python", "typescript", "javascript", "php" },
-  sync_install = false,
+require 'nvim-treesitter.configs'.setup {
+    -- language parsers required
+    ensure_installed = {
+        "rust",
+        "asm",
+        "c",
+        "go",
+        "zig",
+        "lua",
+        "python",
+        "bash",
+        "sql",
+        "html",
+        "css",
+        "typescript",
+        "javascript",
+        "php"
+    },
+>>>>>>> 67113a9 (lspconf upd)
+  sync_install = true,
   auto_install = true,
 
   highlight = {
