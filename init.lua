@@ -13,3 +13,4 @@ require("config")
 
 -- lsp
 require("configs.lsp-config")
+require("configs.treesitter-config")

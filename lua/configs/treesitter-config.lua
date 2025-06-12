@@ -14,14 +14,15 @@ require 'nvim-treesitter.configs'.setup {
         "css",
         "typescript",
         "javascript",
-        "php"
+        "php",
+        "markdown",
+        "markdown_inline"
     },
->>>>>>> 67113a9 (lspconf upd)
   sync_install = true,
   auto_install = true,
 
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = { "markdown" },
   },
 }
