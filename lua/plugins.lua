@@ -1,6 +1,8 @@
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use {"williamboman/mason.nvim"}
+    -- latex
+    use 'lervag/vimtex'
     -- cmp
     use 'L3MON4D3/LuaSnip'
     use 'hrsh7th/nvim-cmp'
@@ -26,6 +28,7 @@ return require('packer').startup(function(use)
     -- utils
     use 'm4xshen/autoclose.nvim' -- tags
     use 'folke/zen-mode.nvim'    -- zz
+    use "editorconfig/editorconfig-vim" -- .editorconfig
     -- LSP
     use 'nanotee/sqls.nvim' -- sqls
     -- lsp integrations

@@ -16,7 +16,8 @@ require 'nvim-treesitter.configs'.setup {
         "javascript",
         "php",
         "markdown",
-        "markdown_inline"
+        "markdown_inline",
+        "cmake"
     },
   sync_install = true,
   auto_install = true,

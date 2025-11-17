@@ -1,3 +1,5 @@
+vim.cmd("silent! lua vim.notify = function(...) end")
+
 -- plugin manager
 require("plugins")
 

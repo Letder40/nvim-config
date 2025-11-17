@@ -35,4 +35,3 @@ vim.keymap.set("n", "<C-l>", function() ui.nav_file(2) end)
 -- zen
 local zen = require('zen-mode')
 vim.keymap.set("n", "<leader>zz", function() zen.toggle() end)
-
