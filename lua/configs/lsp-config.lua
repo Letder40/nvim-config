@@ -1,11 +1,19 @@
--- cmp
 require("lazydev").setup()
-require("autoclose").setup()
 
-local lspkind = require('lspkind')
+vim.g.markdown_recommended_style = 0
+vim.diagnostic.config({
+  float = { border = "rounded" },
+  virtual_text = {
+    prefix = "●",
+    virt_text_pos = "right_align",
+  }
+})
+
+require("autoclose").setup()
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local lspkind = require('lspkind')
 
 cmp.setup({
     sources = {

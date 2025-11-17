@@ -1,5 +1,6 @@
-require 'nvim-treesitter.configs'.setup {
-    -- language parsers required
+require('nvim-treesitter.configs').setup({
+    modules = {},
+    ignore_install = {},
     ensure_installed = {
         "rust",
         "asm",
@@ -21,6 +22,6 @@ require 'nvim-treesitter.configs'.setup {
 
     highlight = {
         enable = true,
-        additional_vim_regex_highlighting = true,
+        additional_vim_regex_highlighting = false,
     },
-}
+})
