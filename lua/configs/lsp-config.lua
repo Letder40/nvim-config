@@ -26,7 +26,6 @@ cmp.setup({
         -- documentation = cmp.config.window.bordered(),
     },
 
-
     formatting = {
         fields= {"abbr", "kind", "menu"},
         format = lspkind.cmp_format({
@@ -67,6 +66,13 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 end
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+vim.lsp.config("*", {
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+
 require("mason-lspconfig").setup({
     ensure_installed = {
         "lua_ls",
@@ -79,8 +85,6 @@ require("mason-lspconfig").setup({
 
     automatic_enable = true,
 })
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.lsp.config("clangd", {
     capabilities = capabilities,
@@ -100,6 +104,4 @@ vim.lsp.config("clangd", {
 vim.lsp.config("asm_lsp", {
     assembler = "nasm",
     filetypes = { "nasm", "asm", "s", "S" },
-    capabilities = capabilities,
-    on_attach = on_attach,
 })
