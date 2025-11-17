@@ -1,5 +1,6 @@
-require 'nvim-treesitter.configs'.setup {
-    -- language parsers required
+require('nvim-treesitter.configs').setup({
+    modules = {},
+    ignore_install = {},
     ensure_installed = {
         "rust",
         "asm",
@@ -19,11 +20,11 @@ require 'nvim-treesitter.configs'.setup {
         "markdown_inline",
         "cmake"
     },
-  sync_install = true,
-  auto_install = true,
+    sync_install = true,
+    auto_install = true,
 
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = { "markdown" },
-  },
-}
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { "markdown" },
+    },
+})

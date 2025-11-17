@@ -1,8 +1,6 @@
-vim.cmd("silent! lua vim.notify = function(...) end")
-
 -- plugin manager
 require("plugins")
-
+--
 -- theme 
 require("configs/onedark-config")
 vim.cmd [[colorscheme onedark]]
