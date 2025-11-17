@@ -1,3 +1,5 @@
+require("lazydev").setup()
+
 -- Diagnostic
 vim.diagnostic.config({
   float = { border = "rounded" },
