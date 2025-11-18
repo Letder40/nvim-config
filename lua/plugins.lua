@@ -27,11 +27,10 @@ return require('packer').startup(function(use)
             }
         }
     }
-    -- latex
-    use 'lervag/vimtex'
     -- Themes
     use 'navarasu/onedark.nvim'
     -- utils
+    use 'sontungexpt/better-diagnostic-virtual-text' -- better diagnostics
     use 'm4xshen/autoclose.nvim' -- tags
     use 'folke/zen-mode.nvim'    -- zz
     use "editorconfig/editorconfig-vim" -- .editorconfig
@@ -39,9 +38,8 @@ return require('packer').startup(function(use)
     use 'nanotee/sqls.nvim' -- sqls
     -- lsp integrations
     use({ 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } })
-    -- Themes
-    use 'navarasu/onedark.nvim'
-    -- LSP others
+    -- LSP or others
+    use 'lervag/vimtex' -- latex
     use 'nanotee/sqls.nvim' -- sqls
     -- lsp integrations
     use({

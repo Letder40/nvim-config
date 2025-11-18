@@ -1,17 +1,31 @@
 require("lazydev").setup()
 
--- Diagnostic
+-- Diagnostic 
+require('better-diagnostic-virtual-text').setup({
+    ui = {
+        wrap_line_after = false,
+        left_kept_space = 3,
+        right_kept_space = 3,
+        arrow = "  ",
+        up_arrow = "  ",
+        down_arrow = "  ",
+        above = false,
+    },
+    priority = 2003,
+    inline = true,
+})
+
 vim.diagnostic.config({
   float = { border = "rounded" },
-  virtual_text = {
-    prefix = "●",
-    virt_text_pos = "right_align",
-  }
+  virtual_text = false --{
+  --  prefix = "●",
+  --  virt_text_pos = "right_align",
+  --}
 })
+
 vim.keymap.set('n', '<leader>ee', '<cmd>lua vim.diagnostic.open_float()<cr>')
 vim.keymap.set('n', '<leader>ne', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 vim.keymap.set('n', '<leader>pe', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-
 
 -- Autoclose
 local ok, autoclose = pcall(require, "autoclose")
