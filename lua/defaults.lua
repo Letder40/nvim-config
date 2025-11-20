@@ -27,4 +27,3 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.g.vimtex_view_method = 'zathura'
-vim.opt.shortmess:append("I")  -- skip intro

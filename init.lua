@@ -1,16 +1,6 @@
--- plugin manager
-require("plugins")
---
--- theme 
-require("configs/onedark-config")
-vim.cmd [[colorscheme onedark]]
+require("config.lazy")
+require("lazy").setup("plugins")
+require("config.lsp")
 
--- keybinds
+require("defaults")
 require("keybinds")
-
--- configs
-require("config")
-
--- lsp
-require("configs.lsp-config")
-require("configs.treesitter-config")
