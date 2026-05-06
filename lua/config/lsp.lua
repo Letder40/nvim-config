@@ -25,7 +25,7 @@ vim.lsp.config("*", {
 vim.lsp.config("clangd", {
     capabilities = capabilities,
     on_attach = on_attach,
-    filetypes = { "c" },
+    filetypes = { "c", "cpp", "c++", "h", "hpp" },
     cmd = {
         "clangd",
         "--background-index",
@@ -38,6 +38,34 @@ vim.lsp.config("clangd", {
 })
 
 vim.lsp.config("asm_lsp", {
-    assembler = "nasm",
-    filetypes = { "nasm", "asm", "s", "S" },
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "asm", "nasm" },
 })
+
+vim.lsp.config("sqlls", {
+    cmd = { "sql-language-server", "up", "--method", "stdio" },
+
+    filetypes = { "sql", "mysql" },
+
+    root_markers = {
+        ".git",
+    },
+
+    settings = {
+        sqlLanguageServer = {
+            connections = {
+                {
+                    driver = "mysql",
+                    dataSourceName =
+                    "mysql://dev:dev@127.0.0.1:3306/CamaraPath",
+                },
+            },
+        },
+    },
+
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+vim.lsp.enable("sqlls")

@@ -27,3 +27,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.g.vimtex_view_method = 'zathura'
+
+vim.api.nvim_create_user_command("LspLog", function()
+  vim.cmd("tabedit " .. vim.lsp.log.get_filename())
+end, {})
