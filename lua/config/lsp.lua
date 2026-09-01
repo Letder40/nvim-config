@@ -25,7 +25,7 @@ vim.lsp.config("*", {
 vim.lsp.config("clangd", {
     capabilities = capabilities,
     on_attach = on_attach,
-    filetypes = { "c" },
+    filetypes = { "c", "cpp", "c++", "h", "hh" },
     cmd = {
         "clangd",
         "--background-index",
@@ -38,6 +38,7 @@ vim.lsp.config("clangd", {
 })
 
 vim.lsp.config("asm_lsp", {
-    assembler = "nasm",
-    filetypes = { "nasm", "asm", "s", "S" },
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "asm", "nasm" },
 })
