@@ -28,7 +28,8 @@ return {
                 "rust_analyzer",
                 "bashls",
                 "html",
-                "ts_ls"
+                "ts_ls",
+                "eslint",
             },
 
             automatic_enable = true,

@@ -68,4 +68,23 @@ vim.lsp.config("sqlls", {
     on_attach = on_attach,
 })
 
+vim.lsp.config("eslint", {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    root_markers = {
+        "eslint.config.mjs",
+        "eslint.config.js",
+        "package.json",
+        "bun.lock",
+        ".git",
+    },
+    settings = {
+        workingDirectory = { mode = "auto" },
+        useFlatConfig = true,
+        validate = "on",
+        packageManager = "bun",
+    },
+})
+
 vim.lsp.enable("sqlls")
+vim.lsp.enable("eslint")
