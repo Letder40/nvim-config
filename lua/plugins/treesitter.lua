@@ -1,40 +1,27 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPre", "BufNewFile" },
-    branch = 'master',
+    version = false,
     lazy = false,
+    branch = "main",
     build = ":TSUpdate",
-    config = function()
-        local treesitter = require("nvim-treesitter.configs")
-        treesitter.setup({
-            modules = {},
-            ignore_install = {},
-            ensure_installed = {
-                "rust",
-                "asm",
-                "c",
-                "go",
-                "zig",
-                "lua",
-                "python",
-                "bash",
-                "sql",
-                "html",
-                "css",
-                "typescript",
-                "javascript",
-                "php",
-                "markdown",
-                "markdown_inline",
-                "cmake"
-            },
-            sync_install = true,
-            auto_install = true,
+    event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    opts = {
+        highlight = { enable = true },
+        indent = { enable = true },
 
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = { "markdown" },
+        ensure_installed = "all",
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+                init_selection = "<C-space>",
+                node_incremental = "<C-space>",
+                scope_incremental = "<nop>",
+                node_decremental = "<bs>",
             },
-        })
-    end
+        },
+    },
 }
