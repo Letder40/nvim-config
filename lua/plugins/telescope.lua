@@ -6,7 +6,7 @@ return {
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons',
-            { "https://github.com/Letder40/telescope-file-browser.nvim", branch="feat/independent-depth-configuration" },
+            { "https://github.com/Letder40/telescope-file-browser.nvim", dev=true, dir="/home/letder/workspace/dev/telescope-file-browser.nvim",  branch="feat/independent-depth-configuration" },
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
         },
         lazy = false,
@@ -27,6 +27,7 @@ return {
                         },
                     },
                 },
+
                 extensions = {
                     file_browser = {
                         path = vim.loop.cwd(),
@@ -105,13 +106,14 @@ return {
         keys = {
             { "<C-p>", "<cmd>Telescope git_files<cr>" },
             { "<leader>ff", "<cmd>Telescope find_files<cr>" },
-            { "<leader>fb", "<cmd>Telescope file_browser<cr>" },
-            { "<leader>bb", "<cmd>Telescope buffers<CR>" },
+            { "<leader>ft", "<cmd>Telescope file_browser<cr>" },
+            { "<leader>fb", "<cmd>Telescope buffers<CR>" },
             { "<leader>fg", "<cmd>Telescope live_grep<cr>" },
             { "<leader>fe", "<cmd>Telescope diagnostics<cr>" },
+            { "<leader>br", "<cmd>Telescope file_browser<cr>" },
             { "<leader>gc", "<cmd>Telescope git_commits<CR>" },
             { "<leader>gs", "<cmd>Telescope git_status<CR>" },
-            { "<leader>gdc", "<cmd>Telescope git_bcommits<CR>" },
+            { "<leader>gf", "<cmd>Telescope git_bcommits<CR>" },
             { "<leader>gb", "<cmd>Telescope git_branches<CR>" },
             { "<leader>tr", "<cmd>Telescope treesitter<CR>" },
             { "<leader><space><space>", "<cmd>Telescope resume<cr>" },
