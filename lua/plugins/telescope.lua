@@ -6,7 +6,7 @@ return {
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons',
-            { "https://github.com/Letder40/telescope-file-browser.nvim", dev=true, dir="/home/letder/workspace/dev/telescope-file-browser.nvim",  branch="feat/independent-depth-configuration" },
+            { "https://github.com/Letder40/telescope-file-browser.nvim", branch="feat/independent-depth-configuration" },
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
         },
         lazy = false,
