@@ -43,6 +43,52 @@ vim.lsp.config("asm_lsp", {
     filetypes = { "asm", "nasm" },
 })
 
+vim.lsp.config("pylsp", {
+    on_attach = on_attach,
+    filetypes = { 'python' },
+    settings = {
+        pylsp = {
+            configurationSources = { "flake8" },
+
+            plugins = {
+                jedi_completion = {
+                    fuzzy = true,
+                    include_params = false,
+                },
+
+                jedi_signature_help = {
+                    enabled = true,
+                },
+
+                pyflakes = {
+                    enabled = false,
+                },
+
+                pycodestyle = {
+                    enabled = false,
+                },
+
+                mccabe = {
+                    enabled = false,
+                },
+
+                flake8 = {
+                    enabled = true,
+                    maxLineLength = 100,
+                },
+
+                pylsp_mypy = {
+                    enabled = true,
+                },
+
+                yapf = {
+                    enabled = true,
+                },
+            },
+        }
+    }
+})
+
 vim.lsp.config("sqlls", {
     cmd = { "sql-language-server", "up", "--method", "stdio" },
 

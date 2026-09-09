@@ -105,6 +105,8 @@ return {
 
         keys = {
             { "<C-p>", "<cmd>Telescope git_files<cr>" },
+            { "<C-f>", "<cmd>Telescope find_files<cr>" },
+            { "<C-b>", "<cmd>Telescope file_browser<cr>" },
             { "<leader>ff", "<cmd>Telescope find_files<cr>" },
             { "<leader>ft", "<cmd>Telescope file_browser<cr>" },
             { "<leader>fb", "<cmd>Telescope buffers<CR>" },
