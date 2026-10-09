@@ -7,8 +7,8 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-    vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+    vim.keymap.set('n', '<leader>rb', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.keymap.set('n', '<A-f>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     vim.keymap.set('n', '<leader>ee', '<cmd>lua vim.diagnostic.open_float()<cr>')
     vim.keymap.set('n', '<leader>ne', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
@@ -20,6 +20,10 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 vim.lsp.config("*", {
     on_attach = on_attach,
     capabilities = capabilities,
+})
+
+vim.diagnostic.config({
+    update_in_insert = false,
 })
 
 vim.lsp.config("clangd", {
@@ -34,6 +38,13 @@ vim.lsp.config("clangd", {
         "--enable-config",
         "--offset-encoding=utf-16",
         "--log=verbose",
+    },
+})
+
+vim.lsp.config("oxlint", {
+    capabilities = capabilities,
+    settings = {
+        unusedDisableDirectives = "deny",
     },
 })
 
@@ -100,23 +111,5 @@ vim.lsp.config("sqlls", {
 
 })
 
-vim.lsp.config("eslint", {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    root_markers = {
-        "eslint.config.mjs",
-        "eslint.config.js",
-        "package.json",
-        "bun.lock",
-        ".git",
-    },
-    settings = {
-        workingDirectory = { mode = "auto" },
-        useFlatConfig = true,
-        validate = "on",
-        packageManager = "bun",
-    },
-})
-
+vim.lsp.enable("oxlint")
 vim.lsp.enable("sqlls")
-vim.lsp.enable("eslint")

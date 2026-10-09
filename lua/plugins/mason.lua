@@ -28,11 +28,12 @@ return {
                 "rust_analyzer",
                 "bashls",
                 "html",
-                "ts_ls",
-                "eslint",
+                "vtsls",
             },
 
-            automatic_enable = true,
+            automatic_enable = {
+                exclude = { "eslint" },
+            },
         })
     end,
 }
