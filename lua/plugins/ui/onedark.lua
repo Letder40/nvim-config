@@ -3,7 +3,7 @@ return {
 	lazy = false,
 	priority = 1000,
 
-	opts = function()
+	config = function()
 		require('onedark').setup  {
 		    style = 'deep',
 		    transparent = true,
@@ -31,7 +31,7 @@ return {
 		    highlights = {
 			Tag = {
                 fg= "#0fc3ff" },
-                ["@_jsx_element.tsx"] = { fg = "#fffff" },
+                ["@_jsx_element.tsx"] = { fg = "#ffffff" },
                 ["@tag.attribute.tsx"] = { fg = "#ea41ea" },
 		    }, -- Override highlight groups
 

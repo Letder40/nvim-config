@@ -9,6 +9,8 @@ return {
             insert_bg  = '#ffffff',
             default_bg = '#2c3043',
             color1     = '#ff5874',
+            color0     = '#ccd2db',
+            color6     = '#8791a6',
         }
 
         local custom_theme = {

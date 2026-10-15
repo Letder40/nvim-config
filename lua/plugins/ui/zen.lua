@@ -1,7 +1,6 @@
 return {
     'folke/zen-mode.nvim',
     opts = {
-        {
             window = {
                 backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
                 width = 180, -- width of the Zen window
@@ -35,12 +34,8 @@ return {
                     font = "+2",
                 },
             },
-            on_open = function(win)
-                win.close()
-            end,
             -- callback where you can add custom code when the Zen window closes
             on_close = function()
             end,
-        }
     }
 }

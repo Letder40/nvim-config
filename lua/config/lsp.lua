@@ -11,7 +11,6 @@ vim.lsp.config("clangd", {
         "--header-insertion=iwyu",
         "--enable-config",
         "--offset-encoding=utf-16",
-        "--log=verbose",
     },
 })
 
@@ -25,7 +24,6 @@ vim.lsp.config("rust_analyzer", {
     settings = {
         ["rust-analyzer"] = {
             cargo = {
-                features = { "ssr" },
                 loadOutDirsFromCheck = true,
             },
             procMacro = {
@@ -108,10 +106,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
         vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
         vim.keymap.set('n', '<leader>rb', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-        vim.keymap.set('n', '<A-f>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
         vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         vim.keymap.set('n', '<leader>ee', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-        vim.keymap.set('n', '<leader>ep', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-        vim.keymap.set('n', '<leader>en', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+        vim.keymap.set('n', '<leader>ep', '<cmd>lua vim.diagnostic.jump({ count = -1, float = true })<cr>', opts)
+        vim.keymap.set('n', '<leader>en', '<cmd>lua vim.diagnostic.jump({ count = 1, float = true })<cr>', opts)
     end,
 })

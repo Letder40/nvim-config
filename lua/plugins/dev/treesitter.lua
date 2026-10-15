@@ -1,27 +1,25 @@
+-- nvim-treesitter main uses the native Neovim Tree-sitter API.
+-- Keep the plugin eagerly loaded; highlighting is enabled per buffer below.
 return {
     "nvim-treesitter/nvim-treesitter",
-    version = false,
-    lazy = false,
     branch = "main",
+    lazy = false,
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-    },
-    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-    opts = {
-        highlight = { enable = true },
-        indent = { enable = true },
+    config = function()
+        local parsers = {
+            "bash", "c", "cpp", "css", "html", "javascript", "json",
+            "lua", "markdown", "markdown_inline", "python", "rust",
+            "toml", "tsx", "typescript", "vim", "vimdoc", "yaml",
+        }
 
-        ensure_installed = "all",
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = "<C-space>",
-                node_incremental = "<C-space>",
-                scope_incremental = "<nop>",
-                node_decremental = "<bs>",
-            },
-        },
-    },
+        require("nvim-treesitter").install(parsers)
+
+        local group = vim.api.nvim_create_augroup("UserTreesitter", { clear = true })
+        vim.api.nvim_create_autocmd("FileType", {
+            group = group,
+            callback = function(args)
+                pcall(vim.treesitter.start, args.buf)
+            end,
+        })
+    end,
 }
