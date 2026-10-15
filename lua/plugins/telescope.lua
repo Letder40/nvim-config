@@ -6,8 +6,8 @@ return {
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons',
-            { "https://github.com/Letder40/telescope-file-browser.nvim", branch="feat/independent-depth-configuration" },
-            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+            { "https://github.com/Letder40/telescope-file-browser.nvim", branch = "feat/independent-depth-configuration" },
+            { 'nvim-telescope/telescope-fzf-native.nvim',                build = 'make' }
         },
         lazy = false,
 
@@ -59,7 +59,7 @@ return {
                             mode = true
                         },
 
-                        hijack_netrw = true,
+                        hijack_netrw = false,
                         use_fd = true,
                         git_status = true,
 
@@ -104,21 +104,71 @@ return {
         end,
 
         keys = {
-            { "<C-p>", "<cmd>Telescope git_files<cr>" },
-            { "<C-f>", "<cmd>Telescope find_files<cr>" },
-            { "<C-b>", "<cmd>Telescope file_browser<cr>" },
-            { "<leader>ff", "<cmd>Telescope find_files<cr>" },
-            { "<leader>ft", "<cmd>Telescope file_browser<cr>" },
-            { "<leader>fb", "<cmd>Telescope buffers<CR>" },
-            { "<leader>fg", "<cmd>Telescope live_grep<cr>" },
-            { "<leader>fe", "<cmd>Telescope diagnostics<cr>" },
-            { "<leader>br", "<cmd>Telescope file_browser<cr>" },
-            { "<leader>gc", "<cmd>Telescope git_commits<CR>" },
-            { "<leader>gs", "<cmd>Telescope git_status<CR>" },
-            { "<leader>gf", "<cmd>Telescope git_bcommits<CR>" },
-            { "<leader>gb", "<cmd>Telescope git_branches<CR>" },
-            { "<leader>tr", "<cmd>Telescope treesitter<CR>" },
-            { "<leader><space><space>", "<cmd>Telescope resume<cr>" },
+            {
+                "<C-p>",
+                function() require("telescope.builtin").git_files({ show_untracked = true }) end,
+                desc = "Telescope Git Files (con untracked)"
+            },
+            {
+                "<C-f>",
+                function() require("telescope.builtin").find_files() end,
+                desc = "Telescope Find Files"
+            },
+            {
+                "<C-b>",
+                function() require("telescope").extensions.file_browser.file_browser() end,
+                desc = "Telescope File Browser"
+            },
+            {
+                "<leader>st",
+                function() require("telescope.builtin").treesitter() end,
+                desc = "Telescope Treesitter"
+            },
+            {
+                "<leader>ff",
+                function() require("telescope.builtin").find_files() end,
+                desc = "Telescope Find Files"
+            },
+            {
+                "<leader>fb",
+                function() require("telescope.builtin").buffers() end,
+                desc = "Telescope Buffers"
+            },
+            {
+                "<leader>fg",
+                function() require("telescope.builtin").live_grep() end,
+                desc = "Telescope Live Grep"
+            },
+            {
+                "<leader>fe",
+                function() require("telescope.builtin").diagnostics() end,
+                desc = "Telescope Diagnostics"
+            },
+            {
+                "<leader>gc",
+                function() require("telescope.builtin").git_commits() end,
+                desc = "Telescope Git Commits"
+            },
+            {
+                "<leader>gs",
+                function() require("telescope.builtin").git_status() end,
+                desc = "Telescope Git Status"
+            },
+            {
+                "<leader>gf",
+                function() require("telescope.builtin").git_bcommits() end,
+                desc = "Telescope Git Buffer Commits"
+            },
+            {
+                "<leader>gb",
+                function() require("telescope.builtin").git_branches() end,
+                desc = "Telescope Git Branches"
+            },
+            {
+                "<leader><space>",
+                function() require("telescope.builtin").resume() end,
+                desc = "Telescope Resume Last Search"
+            },
         }
     }
 }
