@@ -1,20 +1,29 @@
 # Letder's Neovim config
+
 My custom neovim config
 
-## Features 
+# Features
 
-**Some features**:
-+ mason
-+ telescope
-+ treesitter
-+ cmp
-+ zen
-+ better-diagnostic
-+ harpoon
-+ onedark
+## Main plugins
 
-## Demo
-**I use a custom tmux keybind for the terminal on the right side, check [dotfiles](https://github.com/Letder40/Dotfiles)**
+- plugin mannager: lazy
+
+- lsp
+  - mannager: mason
+  - cmp: blink
+
+- file explorer
+  - telescope (navigation)
+  - oil (in-buffer file mannager)
+
+- colorscheme: onedark
+
+## other plugins:
+
+- better-diagnostic
+- harpoon
+- zen
+
 ![demo1](demo/demo.png)
 
-![demo2](demo/demo2.png)
+checkout [my dotfiles](https://github.com/Letder40/Dotfiles) if you want to try my optimized workflow with one command
