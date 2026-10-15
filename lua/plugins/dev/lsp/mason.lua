@@ -5,7 +5,7 @@ return {
         {
             "mason-org/mason.nvim",
             opts = {},
-            config = function ()
+            config = function()
                 local mason = require("mason")
                 mason.setup({
                     ui = {
@@ -20,7 +20,7 @@ return {
         },
         "neovim/nvim-lspconfig",
     },
-    config = function ()
+    config = function()
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
@@ -29,10 +29,6 @@ return {
                 "bashls",
                 "html",
                 "vtsls",
-            },
-
-            automatic_enable = {
-                exclude = { "eslint" },
             },
         })
     end,

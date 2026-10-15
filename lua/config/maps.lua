@@ -1,3 +1,6 @@
+-- reload
+vim.keymap.set("n", "<leader>R", "<cmd>cq 120<cr>", { desc = "Reiniciar Neovim limpiamente" })
+
 -- Best remaps ever, thanks primeagen
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

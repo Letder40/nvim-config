@@ -1,5 +1,7 @@
 {
     "diagnostics.disable": [
-        "duplicate-set-field"
+        "duplicate-set-field",
+        "unused-local",
+        "undefined-field"
     ]
 }
