@@ -1,0 +1,43 @@
+local noremap = vim.keymap.set
+
+-- exit remap
+noremap({ "i", "c" }, "jk", "<esc>")
+noremap({ "i", "c" }, "<esc>", "")
+noremap("n", "<C-CR>", ":term<CR>")
+noremap("t", "jk", [[<C-\><C-n>]])
+
+-- reload
+noremap("n", "<leader>R", "<cmd>cq 120<cr>", { desc = "neovim restart - needs 120 errcode custom handler" })
+
+-- Best remaps ever, thanks primeagen
+noremap("n", "<C-u>", "<C-u>zz")
+noremap("n", "<C-d>", "<C-d>zz")
+
+-- Copy to clipboard
+noremap("v", "<leader>y", "\"+y")
+noremap("n", "<leader>y", "\"+yy")
+
+-- Paste from clipboard
+noremap({ "n", "v" }, "<leader>p", "\"+p")
+noremap({ "n", "v" }, "<leader>P", "\"+P")
+
+-- splits
+noremap("n", "<C-s>v", ":vsplit<CR>")
+noremap("n", "<C-s>h", ":split<CR>")
+
+noremap("n", "<C-h>", "<C-w>h")
+noremap("n", "<C-j>", "<C-w>j")
+noremap("n", "<C-k>", "<C-w>k")
+noremap("n", "<C-l>", "<C-w>l")
+
+-- magic moves
+noremap("n", "<A-S-k>", ":m .-2 <CR>==", { desc = "Move line up and indent" })
+noremap("n", "<A-S-j>", ":m .+1 <CR>==", { desc = "Move line down and indent" })
+noremap("x", "<A-S-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up and indent" })
+noremap("x", "<A-S-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down and indent" })
+
+-- quickfix
+noremap({ "n", "v" }, "<M-j>", function() vim.cmd('cnext', { output = false }) end)
+noremap({ "n", "v" }, "<M-k>", function() vim.cmd('cprev', { output = false }) end)
+noremap({ "n", "v" }, "<leader>qo", function() vim.cmd('copen') end)
+noremap({ "n", "v" }, "<leader>qc", function() vim.cmd('cclose') end)

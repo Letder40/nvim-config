@@ -1,5 +1,3 @@
--- nvim-treesitter main uses the native Neovim Tree-sitter API.
--- Keep the plugin eagerly loaded; highlighting is enabled per buffer below.
 return {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
@@ -10,6 +8,7 @@ return {
             "bash", "c", "cpp", "css", "html", "javascript", "json",
             "lua", "markdown", "markdown_inline", "python", "rust",
             "toml", "tsx", "typescript", "vim", "vimdoc", "yaml",
+            "regex",
         }
 
         require("nvim-treesitter").install(parsers)

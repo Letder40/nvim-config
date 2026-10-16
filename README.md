@@ -21,9 +21,8 @@ My custom neovim config
 ## other plugins:
 
 - better-diagnostic
-- harpoon
 - zen
 
-![demo1](demo/demo.png)
+![demo1](demo.png)
 
 checkout [my dotfiles](https://github.com/Letder40/Dotfiles) if you want to try my optimized workflow with one command

@@ -1,0 +1,5 @@
+return {
+	settings = {
+		unusedDisableDirectives = "deny",
+	},
+}
