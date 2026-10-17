@@ -33,5 +33,3 @@ vim.opt.updatetime = 50
 vim.g.vimtex_view_method = "zathura"
 vim.g.maplocalleader = " "
 vim.g.mapleader = " "
-
-require("bootstrap")
