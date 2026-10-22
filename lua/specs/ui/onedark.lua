@@ -37,7 +37,6 @@ return {
 			colors = {},
 			highlights = {
 				Tag = { fg = "#0fc3ff" },
-				["@tag.attribute.tsx"] = { fg = "#0fc3ff" },
 			},
 
 			diagnostics = {
